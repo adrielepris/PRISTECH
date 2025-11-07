@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pristech | Vídeos Tutoriais</title>
+  <meta name="description" content="Galeria de vídeos tutoriais da Pristech Software." />
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="container header">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Logo Pristech" class="logo" />
+      <div class="titles">
+        <h1>Pristech <span>Tutoriais</span></h1>
+        <p class="subtitle">Passo a passo oficial • Adriele Ribeiro </p>
+      </div>
+    </div>
+    <nav class="actions">
+      <a class="btn" href="#galeria">Ver vídeos</a>
+      <a class="btn outline" href="README.html">Como editar</a>
+    </nav>
+  </header>
+
+  <section class="container controls" id="galeria">
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Buscar por título ou palavras-chave..." aria-label="Buscar vídeos" />
+    </div>
+    <div class="filters">
+      <select id="categorySelect" aria-label="Filtrar por categoria">
+        <option value="">Todas as categorias</option>
+      </select>
+      <select id="sortSelect" aria-label="Ordenar">
+        <option value="recent">Mais recentes</option>
+        <option value="az">A–Z</option>
+        <option value="za">Z–A</option>
+        <option value="longest">Mais longos</option>
+        <option value="shortest">Mais curtos</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Destaque da Logo -->
+  <section class="container logo-highlight" id="logoHighlight" aria-label="Logo da Pristech em destaque">
+    <div class="logo-card">
+      <img src="assets/logo.svg" alt="Logo oficial da Pristech" class="logo-hero" />
+      <p class="logo-caption">Tecnologia e inovação em cada solução.</p>
+    </div>
+  </section>
+
+
+  <main class="container grid" id="videoGrid" aria-live="polite">
+    <!-- Cards injetados via JS -->
+  </main>
+
+  <template id="cardTemplate">
+    <article class="card">
+      <button class="thumb" data-action="open">
+        <img class="poster" alt="" loading="lazy"/>
+        <span class="duration"></span>
+      </button>
+      <div class="card-body">
+        <h3 class="title"></h3>
+        <p class="meta"><span class="category"></span> • <span class="updated"></span></p>
+        <p class="desc"></p>
+        <div class="card-actions">
+          <button class="btn small" data-action="open">▶️ Assistir</button>
+          <a class="btn small outline" data-action="download" download>⬇️ Baixar</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <!-- Modal Player -->
+  <dialog id="playerModal" class="modal">
+    <form method="dialog" class="modal-bar">
+      <span id="modalTitle"></span>
+      <button class="icon" aria-label="Fechar">✕</button>
+    </form>
+    <div class="modal-body">
+      <video id="videoPlayer" controls preload="metadata" playsinline></video>
+      <p id="videoDescription" class="video-description"></p>
+    </div>
+  </dialog>
+
+  <footer class="container footer">
+    <p>© <span id="year"></span> Pristech Software — Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Instalacao do Pristech",
+    "src": "videos/instalacao.mp4",
+    "poster": "assets/posters/exemplo1.jpg",
+    "category": "Instalacao",
+    "keywords": [
+      "setup",
+      "instalador",
+      "primeiros passos"
+    ],
+    "description": "Como instalar o Pristech no Windows passo a passo.",
+    "durationSec": 420,
+    "updated": "2025-11-01"
+  },
+  {
+    "title": "Cadastro de Usuarios",
+    "src": "videos/cadastro-usuarios.mp4",
+    "poster": "assets/posters/exemplo2.jpg",
+    "category": "Administracao",
+    "keywords": [
+      "perfis",
+      "permissoes",
+      "usuarios"
+    ],
+    "description": "Criacao de usuarios e configuracao de permissoes.",
+    "durationSec": 560,
+    "updated": "2025-11-03"
+  },
+  {
+    "title": "Relatorios Financeiros",
+    "src": "videos/relatorios-financeiros.mp4",
+    "poster": "assets/posters/exemplo3.jpg",
+    "category": "Relatorios",
+    "keywords": [
+      "financeiro",
+      "pdf",
+      "exportacao"
+    ],
+    "description": "Geracao e exportacao de relatorios financeiros.",
+    "durationSec": 690,
+    "updated": "2025-11-05"
+  },
+  {
+    "title": "PDV-NFC-e ou Orcamento Simples",
+    "src": "videos/PDV-NFCe-Ou-OrcamentoSimples.mp4",
+    "poster": "assets/posters/pdv-nfce.jpg",
+    "category": "PDV",
+    "keywords": [
+      "vendas",
+      "nfce",
+      "orcamento",
+      "pdv"
+    ],
+    "description": "Aprenda a operar o PDV da Pristech, com emissao de NFC-e ou orcamentos simples.",
+    "durationSec": 300,
+    "updated": "2025-11-07"
+  }
+]
