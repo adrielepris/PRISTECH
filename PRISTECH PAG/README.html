@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Como editar — Pristech Tutoriais</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container" style="padding:24px 0 60px">
+    <h1>Como usar e publicar no GitHub Pages</h1>
+    <ol>
+      <li>Coloque seus vídeos em <code>/videos</code> (arquivos <strong>.mp4</strong>).</li>
+      <li>Troque a logo em <code>/assets/logo.svg</code> pelo arquivo oficial da <strong>Pristech</strong> (mantenha o mesmo nome do arquivo, ou ajuste no <code>index.html</code>).</li>
+      <li>Edite o arquivo <code>videos.json</code> e atualize a lista com <code>title</code>, <code>src</code> (ex: <code>videos/seu-video.mp4</code>), <code>poster</code>, <code>category</code>, <code>description</code>, <code>durationSec</code> e <code>updated</code> (AAAA-MM-DD).</li>
+      <li>Abra o <code>index.html</code> localmente para testar. Dica: use uma extensão de servidor local (Live Server) no VS Code para evitar cache.</li>
+      <li>Envie tudo para um repositório no GitHub. Em <em>Settings → Pages</em>, publique a partir da branch <strong>main</strong> e pasta <strong>/ (root)</strong>.</li>
+      <li>Acesse sua URL: <em>https://seuusuario.github.io/nomedorepo/</em></li>
+    </ol>
+
+    <h2>Dicas</h2>
+    <ul>
+      <li>Para cada vídeo, crie um <em>poster</em> (thumbnail) em <code>/assets/posters</code>. Há 3 exemplos prontos.</li>
+      <li>Você pode organizar por categorias (ex.: Instalação, Administração, Relatórios). O seletor de filtro aparece automaticamente.</li>
+      <li>O botão “Baixar” faz o download direto do arquivo MP4.</li>
+    </ul>
+  </main>
+</body>
+</html>
