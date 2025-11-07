@@ -1,15 +1,15 @@
 [
   {
-    "title": "Instalacao do Pristech",
-    "src": "videos/instalacao.mp4",
+    "title": "Atualizacao da Pristech",
+    "src": "videos/atualiacao.mp4",
     "poster": "assets/posters/exemplo1.jpg",
-    "category": "Instalacao",
+    "category": "Atualizacao",
     "keywords": [
       "setup",
-      "instalador",
+      "atualizar",
       "primeiros passos"
     ],
-    "description": "Como instalar o Pristech no Windows passo a passo.",
+    "description": "Como atualizar o Pristech no Windows passo a passo.",
     "durationSec": 420,
     "updated": "2025-11-01"
   },
@@ -42,7 +42,7 @@
     "updated": "2025-11-05"
   },
   {
-    "title": "PDV-NFC-e ou Orcamento Simples",
+    "title": "VENDAS PDV-NFC-e-Orcamento Simples",
     "src": "videos/PDV-NFCe-Ou-OrcamentoSimples.mp4",
     "poster": "assets/posters/pdv-nfce.jpg",
     "category": "PDV",
