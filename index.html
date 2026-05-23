@@ -1,96 +1,622 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pristech | Vídeos Tutoriais</title>
-  <meta name="description" content="Galeria de vídeos tutoriais da Pristech Software." />
-  <link rel="icon" href="assets/logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Pristech | Modelo Visual • Tutoriais</title>
+<meta content="Modelo visual estático de galeria por categorias, pronto para substituir pelos vídeos reais." name="description"/>
+<link href="assets/logo.svg" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<style>.video-section.hidden{display:none}</style>
 </head>
 <body>
-  <header class="container header">
-    <div class="brand">
-      <img src="assets/logo.svg" alt="Logo Pristech" class="logo" />
-      <div class="titles">
-        <h1>Pristech <span>Tutoriais</span></h1>
-        <p class="subtitle">Passo a passo oficial • Adriele Ribeiro </p>
-      </div>
+<header class="wrap header">
+  <div class="brand">
+    <img alt="Logo Pristech" class="logo" src="assets/logo.svg"/>
+    <div class="titles">
+      <h1>Pristech <span>Tutoriais</span></h1>
+      <p class="subtitle"> Passo a passo oficial ® • Adriele Ribeiro ⭐</p>
     </div>
-    <nav class="actions">
-      <a class="btn" href="#galeria">Ver vídeos</a>
-      <a class="btn outline" href="README.html">Como editar</a>
-    </nav>
-  </header>
+  </div>
+  <nav>
+    <button class="btn small" id="go-videos">🎬 Vídeos</button>
+  </nav>
+</header>
 
-  <section class="container controls" id="galeria">
-    <div class="search">
-      <input id="searchInput" type="search" placeholder="Buscar por título ou palavras-chave..." aria-label="Buscar vídeos" />
+<!-- Top toolbar with search/category -->
+<div class="topbar">
+  <div class="wrap toolbar">
+    <input id="search" type="search" placeholder="Pesquisar por título, descrição ou tags…"/>
+    <select id="category">
+      <option value="">Todas as categorias</option>
+    </select>
+    <button id="clear" class="btn-ghost">Limpar</button>
+    <button id="searchBtn" class="btn-primary">Buscar</button>
+    <span id="stats"></span>
+  </div>
+</div>
+
+<section class="wrap hero">
+  <div class="logo-card">
+    <img alt="Logo oficial da Pristech" class="logo-hero" src="assets/logo.svg"/>
+    <p class="logo-caption">🖥️ Tecnologia e inovação em cada solução 🖥️</p>
+  </div>
+</section>
+
+<main class="wrap" id="videos">
+  <!-- ===== PDV ===== -->
+  <section class="video-section">
+    <div class="section-head">
+      <h2 class="section-title">PDV</h2> 
+      <span class="section-count">6 vídeos</span>
     </div>
-    <div class="filters">
-      <select id="categorySelect" aria-label="Filtrar por categoria">
-        <option value="">Todas as categorias</option>
-      </select>
-      <select id="sortSelect" aria-label="Ordenar">
-        <option value="recent">Mais recentes</option>
-        <option value="az">A–Z</option>
-        <option value="za">Z–A</option>
-        <option value="longest">Mais longos</option>
-        <option value="shortest">Mais curtos</option>
-      </select>
-    </div>
-  </section>
-
-  <!-- Destaque da Logo -->
-  <section class="container logo-highlight" id="logoHighlight" aria-label="Logo da Pristech em destaque">
-    <div class="logo-card">
-      <img src="assets/logo.svg" alt="Logo oficial da Pristech" class="logo-hero" />
-      <p class="logo-caption">Tecnologia e inovação em cada solução.</p>
-    </div>
-  </section>
-
-
-  <main class="container grid" id="videoGrid" aria-live="polite">
-    <!-- Cards injetados via JS -->
-  </main>
-
-  <template id="cardTemplate">
-    <article class="card">
-      <button class="thumb" data-action="open">
-        <img class="poster" alt="" loading="lazy"/>
-        <span class="duration"></span>
-      </button>
-      <div class="card-body">
-        <h3 class="title"></h3>
-        <p class="meta"><span class="category"></span> • <span class="updated"></span></p>
-        <p class="desc"></p>
-        <div class="card-actions">
-          <button class="btn small" data-action="open">▶️ Assistir</button>
-          <a class="btn small outline" data-action="download" download>⬇️ Baixar</a>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Prévia do vídeo Orçamento" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
         </div>
-      </div>
-    </article>
-  </template>
-
-  <!-- Modal Player -->
-  <dialog id="playerModal" class="modal">
-    <form method="dialog" class="modal-bar">
-      <span id="modalTitle"></span>
-      <button class="icon" aria-label="Fechar">✕</button>
-    </form>
-    <div class="modal-body">
-      <video id="videoPlayer" controls preload="metadata" playsinline></video>
-      <p id="videoDescription" class="video-description"></p>
+        <div class="card-body">
+          <h3 class="title">Orçamento•</h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: Orçamento • Simples>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">Orçamento</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/orcamento.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Prévia do vídeo NFCe" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">NFC-e•</h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: NFC-e.</p>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">NFCe</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/NFC-e.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Recebimento de Crediario" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Recebimento de Crediario•</h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: Recebimento de Crediario.</p>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">Recebimento</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/recebimento de crediario.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Prévia do vídeo Relatórios" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title"> Menú F1 (Apresentação)• </h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: F1 Último pedido • F2 Cadastro de cliente • F3 Gerenciar pedidos • F4 Movimento do Caixa • F5 Recebimento • F6 Relatório de Vendas • F7 Gerenciar NFC-e ..</p>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">Relatórios</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/menu f1.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Prévia do vídeo Envio de XML p/ Contabilidade" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Envio de XML p/ Contabilidade•</h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: Envio de XML p/ Contabilidade (F1)Menú (F7) Gerenciamento de NFC-E .</p>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">Envio</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/envio xml p/ contabilidade.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a> 
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">PDV</span>
+          <img alt="Prévia do vídeo Conferência de Fluxo de Caixa" class="poster" src="assets/posters/pdv.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Conferência de Fluxo de Caixa•</h3>
+          <p class="meta"><span class="category">PDV</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo PDV: Conferência de Fluxo de Caixa.</p>
+          <div class="tags">
+            <span class="tag">PDV</span><span class="tag">Conferência</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/conferencia de fluxo de caixa.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
     </div>
-  </dialog>
+  </section>
 
-  <footer class="container footer">
-    <p>© <span id="year"></span> Pristech Software — Todos os direitos reservados.</p>
-  </footer>
+  <!-- ===== NFe ===== -->
+  <section class="video-section">
+    <div class="section-head">
+      <h2 class="section-title">NF-e</h2>
+      <span class="section-count">6 vídeos</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Entrada de XML com Cadastro Inteligente" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Entrada de XML com Cadastro Inteligente•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Entrada de XML com Cadastro Inteligente.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Entrada</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/entrada de xml.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e•</span>
+          <img alt="Prévia do vídeo Exclusão de NF-e de Entrada" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Exclusão de NF-e de Entrada•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Exclusão de NFe de Entrada.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Exclusão</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/exclusao de nfe de entrada.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Criar NF-e" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Criar NF-e•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Criar NF-e.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Criar</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/criar NF-e.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Relatórios Fiscais" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Relatórios Fiscais•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Relatórios Fiscais.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Relatórios</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/relarorios fiscais.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Inventário Fiscal" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Inventário Fiscal•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Inventário Fiscal.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Inventário</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/inventario fiscal.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+            </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo MDF-e" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">MDF-e•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: MDF-e.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">MDF-e</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/MDF-e.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+           
+        </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Sped Fiscal/EFD Pis Confins" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Sped Fiscal/EFD Pis Confins•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Sped Fiscal.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Sped Fiscal/efd pis confins/span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/sped fiscal.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Saldo de Estoque" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Saldo de Estoque Fiscal•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Saldo de Estoque.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Saldo</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/estoque fiscal.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+        </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">NF-e</span>
+          <img alt="Prévia do vídeo Cadastro de Produto" class="poster" src="assets/posters/nfe.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Cadastro de Produto•</h3>
+          <p class="meta"><span class="category">NFe</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo NF-e: Cadastro de Produto.</p>
+          <div class="tags">
+            <span class="tag">NF-e</span><span class="tag">Saldo</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/Cadastro de Produto.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
 
-  <script src="script.js"></script>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Atualizar ===== -->
+  <section class="video-section">
+    <div class="section-head">
+      <h2 class="section-title">Atualizar•</h2>
+      <span class="section-count">5 vídeos</span>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Atualizar</span>
+          <img alt="Prévia do vídeo Atualização" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Atualização mensal•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Atualização.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Atualização</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/atualizacao-mensal.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Atualizar</span>
+          <img alt="Prévia do vídeo Cadastro de Usuários" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Cadastro de Usuários•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Cadastro de Usuários.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Cadastro</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/cadastro de usuarios.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Atualizar</span>
+          <img alt="Prévia do vídeo Vendedor" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Cadastro de Vendedor•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Vendedor.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Vendedor</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/cadastro de vendedor.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Atualizar</span>
+          <img alt="Prévia do vídeo Cadastro de Grupos" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Cadastro de Grupos/familia•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Cadastro de Grupos.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Cadastro</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/cadastro de grupo.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Atualizar</span>
+          <img alt="Prévia do vídeo Lançamentos de Entrada/Saída" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Lançamentos de Entrada/Saída de Estoque•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Lançamentos de Entrada/Saída.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Lançamentos</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/lancamento de entrada/saida.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+        </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb">
+          <span class="cat-badge">Etiquetas</span>
+          <img alt="Prévia do vídeo Lançamentos Etiquetas" class="poster" src="assets/posters/atualizar.png"/>
+          <span class="duration">--:--</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">Etiquetas•</h3>
+          <p class="meta"><span class="category">Atualizar</span> • <span class="updated">—</span></p>
+          <p class="desc">Módulo Atualizar: Etiquetas.</p>
+          <div class="tags">
+            <span class="tag">Atualizar</span><span class="tag">Etiquetas</span>
+          </div>
+          <div class="card-actions">
+            <button class="btn small" onclick="openVideo('videos/Etiquetas.mp4.mp4')">▶️ Assistir</button>
+            <a class="btn small outline" href="#" onclick="return false;">⬇️ Baixar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap footer">
+  <p>© <span id="year"></span> Pristech Software — Todos os direitos reservados.DESENVOLVEDOR PRINCIPAL: GRIMARIO TRINDADE</p> (◕‿◕)
+</footer>
+
+<!-- Floating Instagram Button -->
+<button class="fab" onclick="window.open('https://instagram.com/pris.tech','_blank')" title="Siga no Instagram">📱</button> 
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<!-- Search / Filter logic (enhanced) -->
+<script>
+(function(){
+  const $ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+  const q = (sel, ctx=document) => ctx.querySelector(sel);
+
+  const searchInput = q('#search');
+  const categorySelect = q('#category');
+  const clearBtn = q('#clear');
+  const searchBtn = q('#searchBtn');
+  const stats = q('#stats');
+  const goVideos = q('#go-videos');
+
+  const cards = $('.card');
+  const sections = $('.video-section');
+
+  // Build categories from badges or meta
+  const categories = new Set();
+  cards.forEach(card => {
+    const byMeta = q('.meta .category', card);
+    const byBadge = q('.cat-badge', card);
+    const val = (byMeta?.textContent || byBadge?.textContent || '').trim();
+    if (val) categories.add(val);
+  });
+
+  // Populate select
+  [...categories].sort((a,b)=> (''+a).localeCompare(b, 'pt-BR')).forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = c;
+    categorySelect.appendChild(opt);
+  });
+
+  function normalizeText(s){
+    return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  }
+
+  function matches(card, term, cat){
+    const t = normalizeText(q('.title', card)?.textContent);
+    const d = normalizeText(q('.desc', card)?.textContent);
+    const tags = normalizeText($('.tag', card).map(el=>el.textContent).join(' '));
+    const c = (q('.meta .category', card)?.textContent || q('.cat-badge', card)?.textContent || '').trim();
+    const hasTerm = !term || t.includes(term) || d.includes(term) || tags.includes(term);
+    const hasCat = !cat || c === cat;
+    return hasTerm && hasCat;
+  }
+
+  function applyFilter(){
+    const term = normalizeText(searchInput.value);
+    const cat = categorySelect.value;
+
+    let visibleCount = 0;
+
+    sections.forEach(section => {
+      const sectionCards = $('.card', section);
+      let sectionVisible = 0;
+      sectionCards.forEach(card => {
+        if (matches(card, term, cat)){
+          card.style.display = '';
+          visibleCount++;
+          sectionVisible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const countEl = q('.section-count', section);
+      if (countEl){
+        countEl.textContent = sectionVisible + (sectionVisible === 1 ? ' vídeo' : ' vídeos');
+      }
+      section.classList.toggle('hidden', sectionVisible === 0);
+    });
+
+    stats.textContent = visibleCount
+      ? `Mostrando ${visibleCount} ${visibleCount === 1 ? 'vídeo' : 'vídeos'}`
+      : 'Nenhum vídeo encontrado';
+  }
+
+  ['input','keyup','change'].forEach(ev => {
+    searchInput.addEventListener(ev, applyFilter);
+  });
+  categorySelect.addEventListener('change', applyFilter);
+  clearBtn?.addEventListener('click', () => {
+    searchInput.value = '';
+    categorySelect.value = '';
+    applyFilter();
+    searchInput.focus();
+  });
+  searchBtn?.addEventListener('click', applyFilter);
+
+  goVideos?.addEventListener('click', () => {
+    document.getElementById('videos').scrollIntoView({behavior:'smooth'});
+  });
+
+  // Initial
+  applyFilter();
+})();
+</script>
+
+<!-- MODAL DE VÍDEO -->
+<div id="videoModal" class="video-modal" style="display:none;">
+  <div class="video-content">
+    <span class="close" onclick="closeVideo()">&times;</span>
+    <video id="tutorialPlayer" controls autoplay style="width:100%; max-height:80vh; background:#000;"></video>
+  </div>
+</div>
+<style>
+.video-modal{
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex; align-items:center; justify-content:center;
+  z-index:9999;
+}
+.video-content{ width:90%; max-width:900px; position:relative; }
+.close{ position:absolute; top:-40px; right:0; font-size:40px; color:white; cursor:pointer; }
+</style>
+<script>
+function openVideo(src){
+  const modal=document.getElementById("videoModal");
+  const player=document.getElementById("tutorialPlayer");
+  player.src=src; modal.style.display="flex";
+}
+function closeVideo(){
+  const modal=document.getElementById("videoModal");
+  const player=document.getElementById("tutorialPlayer");
+  modal.style.display="none"; player.pause(); player.src="";
+}
+</script>
+
 </body>
 </html>
